@@ -6,6 +6,7 @@ module "eks" {
 
   vpc_id     = var.vpc_id
   subnet_ids = var.subnets
+  cluster_endpoint_private_access = true
 
   eks_managed_node_group_defaults = {
     ami_id = var.ami_name
