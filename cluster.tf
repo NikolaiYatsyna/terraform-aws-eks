@@ -9,7 +9,6 @@ module "eks" {
   cluster_endpoint_private_access = true
 
   eks_managed_node_group_defaults = {
-    enable_bootstrap_user_data = true
     attach_cluster_primary_security_group = true
     create_security_group = true
   }
