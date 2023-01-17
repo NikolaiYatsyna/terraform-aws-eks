@@ -13,11 +13,6 @@ variable "instance_type" {
   default = "t3.micro"
 }
 
-variable "ami_name" {
-  description = "AMI to use for nodegroup"
-  default = "ami-06acc29adf84c8f3c"
-}
-
 variable "nodegroup_min_size" {
   description = "Nodegroup min size"
   default = "1"
