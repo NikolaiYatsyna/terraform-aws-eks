@@ -1,8 +1,3 @@
-variable "region" {
-  description = "AWS region to run in"
-  default = "us-east-2"
-}
-
 variable "cluster_name" {
   description = "Name of EKS cluster"
   default = "test"
@@ -10,7 +5,7 @@ variable "cluster_name" {
 
 variable "cluster_version" {
   description = "Amazon EKS Kubernetes version"
-  default = "1.23"
+  default = "1.24"
 }
 
 variable "instance_type" {
