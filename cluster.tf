@@ -10,6 +10,8 @@ module "eks" {
   manage_aws_auth_configmap       = true
   create_cni_ipv6_iam_policy      = true
 
+  cluster_ip_family = "ipv6"
+
   cluster_addons = {
     coredns = {
       most_recent = true
