@@ -10,25 +10,7 @@ module "eks" {
   manage_aws_auth_configmap       = true
   create_cni_ipv6_iam_policy      = true
 
-  cluster_addons = {
-    coredns = {
-      most_recent = true
-    }
-    kube-proxy = {
-      most_recent = true
-    }
-    vpc-cni = {
-      most_recent              = true
-      service_account_role_arn = module.vpc_cni_irsa.iam_role_arn
-      configuration_values = jsonencode({
-        env = {
-          # Reference docs https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
-          ENABLE_PREFIX_DELEGATION = "true"
-          WARM_PREFIX_TARGET       = "1"
-        }
-      })
-    }
-  }
+  cluster_ip_family = "ipv6"
 
   eks_managed_node_group_defaults = {
     attach_cluster_primary_security_group = true
