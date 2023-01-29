@@ -1,6 +1,7 @@
-variable "cluster_name" {
-  description = "Name of EKS cluster"
-  default     = "test"
+variable "region" {}
+
+variable "stack" {
+  description = "stack name"
 }
 
 variable "cluster_version" {
@@ -15,16 +16,16 @@ variable "instance_type" {
 
 variable "nodegroup_min_size" {
   description = "Nodegroup min size"
-  default     = "2"
+  default     = "10"
 }
 
 variable "nodegroup_max_size" {
   description = "Nodegroup max size"
-  default     = "4"
+  default     = "10"
 }
 variable "nodegroup_desired_size" {
   description = "Nodegroup desired size"
-  default     = "2"
+  default     = "10"
 }
 
 variable "ami_id" {
@@ -44,4 +45,13 @@ variable "node_subnets" {
 variable "control_plane_subnets" {
   description = "Subnets ids for control plance"
   type        = list(string)
+}
+
+variable "lb_subnets" {
+  description = "Public subnets for LB"
+  type        = list(string)
+}
+
+variable "cert_arn" {
+  description = "SSL cert arn"
 }

@@ -1,13 +1,3 @@
-data "aws_ami" "eks_default" {
-  most_recent = true
-  owners      = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["amazon-eks-node-${var.cluster_version}-v*"]
-  }
-}
-
 locals {
   ami_id = length(var.ami_id) > 0 ? var.ami_id : data.aws_ami.eks_default.id
 }
@@ -15,7 +5,7 @@ locals {
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
 
-  cluster_name                   = var.cluster_name
+  cluster_name                   = var.stack
   cluster_version                = var.cluster_version
   cluster_endpoint_public_access = true
 
@@ -30,11 +20,33 @@ module "eks" {
     vpc-cni = {
       most_recent = true
     }
+    aws-ebs-csi-driver = {
+      most_recent = true
+    }
   }
 
   vpc_id                   = var.vpc_id
   subnet_ids               = var.node_subnets
   control_plane_subnet_ids = var.control_plane_subnets
+
+  node_security_group_additional_rules = {
+    ingress_self_all = {
+      description = "Node to node all ports/protocols"
+      protocol    = "-1"
+      from_port   = 0
+      to_port     = 0
+      type        = "ingress"
+      self        = true
+    },
+    ingress_source_security_group_id = {
+      description = "NLB healthcheck"
+      protocol    = "tcp"
+      to_port     = local.nginx_ingress_node_port
+      from_port   = local.nginx_ingress_node_port
+      type        = "ingress"
+      cidr_blocks = [data.aws_vpc.vpc.cidr_block]
+    }
+  }
 
   eks_managed_node_group_defaults = {
     ami_id                     = local.ami_id
@@ -45,7 +57,7 @@ module "eks" {
     use_custom_launch_template = false
     force_update_version       = true
     enable_bootstrap_user_data = true
-    bootstrap_extra_args       = "--container-runtime containerd --kubelet-extra-args '--max-pods=20'"
+    bootstrap_extra_args       = "--container-runtime containerd --kubelet-extra-args '--max-pods=50'"
     pre_bootstrap_user_data    = <<-EOT
           export CONTAINER_RUNTIME="containerd"
           export USE_MAX_PODS=false
@@ -63,8 +75,14 @@ module "eks" {
         AmazonSSMManagedInstanceCore       = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
         AmazonEC2RoleforSSM                = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
         AmazonEKS_CNI_Policy               = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-        AmazonEKSWorkerNodePolicy          = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+        AmazonEKSWorkerNodePolicy          = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+        EC2CreateVolume                    = aws_iam_policy.ebs_csi_policy.arn
       }
     }
+  }
+
+  tags = {
+    stack     = var.stack
+    managedBy = "terraform"
   }
 }
