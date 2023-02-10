@@ -9,7 +9,10 @@ data "aws_ami" "eks_default" {
 }
 
 data "aws_vpc" "vpc" {
-  name = "${var.stack}-vpc"
+  filter {
+    name   = "tag:Name"
+    values = ["${var.stack}-vpc"]
+  }
 }
 
 data "aws_subnet_ids" "node_subnets" {
