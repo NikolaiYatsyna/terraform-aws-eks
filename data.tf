@@ -1,16 +1,3 @@
-data "aws_lb_target_group" "ingress-tg-https" {
-  depends_on = [module.alb]
-  name       = "${var.stack}-ingress-tg-https"
-}
-
-data "kubernetes_service" "nginx_ingress_service" {
-  depends_on = [helm_release.nginx_ingress_controller]
-  metadata {
-    name      = "${local.nginx_ingress_name}-controller"
-    namespace = "kube-system"
-  }
-}
-
 data "aws_ami" "eks_default" {
   most_recent = true
   owners      = ["amazon"]
@@ -22,5 +9,15 @@ data "aws_ami" "eks_default" {
 }
 
 data "aws_vpc" "vpc" {
-  id = var.vpc_id
+  name = "${var.stack}-vpc"
+}
+
+data "aws_subnet_ids" "node_subnets" {
+  vpc_id = data.aws_vpc.vpc.id
+  tags = var.private_subnet_tags
+}
+
+data "aws_subnet_ids" "control_plane_subnets" {
+  vpc_id = data.aws_vpc.vpc.id
+  tags = var.intra_subnet_tags
 }

@@ -8,7 +8,8 @@ module "eks" {
   cluster_name                   = var.stack
   cluster_version                = var.cluster_version
   cluster_endpoint_public_access = true
-
+  create_cluster_security_group = false
+  cluster_security_group_id = aws_security_group.cluster_security_group.id
   cluster_addons = {
     coredns = {
       preserve    = true
@@ -25,9 +26,9 @@ module "eks" {
     }
   }
 
-  vpc_id                   = var.vpc_id
-  subnet_ids               = var.node_subnets
-  control_plane_subnet_ids = var.control_plane_subnets
+  vpc_id                   = data.aws_vpc.vpc.id
+  subnet_ids               = data.aws_subnet_ids.node_subnets.ids
+  control_plane_subnet_ids = data.aws_subnet_ids.control_plane_subnets.ids
 
   node_security_group_additional_rules = {
     ingress_self_all = {
@@ -41,8 +42,8 @@ module "eks" {
     ingress_source_security_group_id = {
       description = "NLB healthcheck"
       protocol    = "tcp"
-      to_port     = local.nginx_ingress_node_port
-      from_port   = local.nginx_ingress_node_port
+      to_port     = var.ingress_node_port
+      from_port   = var.ingress_node_port
       type        = "ingress"
       cidr_blocks = [data.aws_vpc.vpc.cidr_block]
     }

@@ -23,6 +23,7 @@ variable "nodegroup_max_size" {
   description = "Nodegroup max size"
   default     = "10"
 }
+
 variable "nodegroup_desired_size" {
   description = "Nodegroup desired size"
   default     = "10"
@@ -33,25 +34,16 @@ variable "ami_id" {
   default     = ""
 }
 
-variable "vpc_id" {
-  description = "VPC id to use"
+variable "private_subnet_tags" {
+  description = "A map of additional tags to add to the private subnets"
+  type        = map(string)
 }
 
-variable "node_subnets" {
-  description = "Subnets ids for nodes"
-  type        = list(string)
+variable "intra_subnet_tags" {
+  description = "A map of additional tags to add to the intra subnets"
+  type        = map(string)
 }
 
-variable "control_plane_subnets" {
-  description = "Subnets ids for control plance"
-  type        = list(string)
-}
-
-variable "lb_subnets" {
-  description = "Public subnets for LB"
-  type        = list(string)
-}
-
-variable "cert_arn" {
-  description = "SSL cert arn"
+variable "ingress_node_port" {
+  description = "Node port of nginx ingress for NLB to proxy traffic to"
 }
