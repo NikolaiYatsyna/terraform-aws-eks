@@ -5,7 +5,7 @@ locals {
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
 
-  cluster_name                   = var.stack
+  cluster_name                   = "${var.stack}-eks"
   cluster_version                = var.cluster_version
   cluster_endpoint_public_access = true
   create_cluster_security_group  = false
