@@ -8,8 +8,8 @@ module "eks" {
   cluster_name                   = var.stack
   cluster_version                = var.cluster_version
   cluster_endpoint_public_access = true
-  create_cluster_security_group = false
-  cluster_security_group_id = aws_security_group.cluster_security_group.id
+  create_cluster_security_group  = false
+  cluster_security_group_id      = aws_security_group.cluster_security_group.id
   cluster_addons = {
     coredns = {
       preserve    = true
