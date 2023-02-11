@@ -38,14 +38,6 @@ module "eks" {
       to_port     = 0
       type        = "ingress"
       self        = true
-    },
-    ingress_source_security_group_id = {
-      description = "NLB healthcheck"
-      protocol    = "tcp"
-      to_port     = var.ingress_node_port
-      from_port   = var.ingress_node_port
-      type        = "ingress"
-      cidr_blocks = [data.aws_vpc.vpc.cidr_block]
     }
   }
 
