@@ -27,8 +27,8 @@ module "eks" {
   }
 
   vpc_id                   = data.aws_vpc.vpc.id
-  subnet_ids               = data.aws_subnet_ids.node_subnets.ids
-  control_plane_subnet_ids = data.aws_subnet_ids.control_plane_subnets.ids
+  subnet_ids               = data.aws_subnets.node_subnets.ids
+  control_plane_subnet_ids = data.aws_subnets.control_plane_subnets.ids
 
   node_security_group_additional_rules = {
     ingress_self_all = {
