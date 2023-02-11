@@ -16,11 +16,9 @@ data "aws_vpc" "vpc" {
 }
 
 data "aws_subnets" "node_subnets" {
-  vpc_id = data.aws_vpc.vpc.id
-  tags   = var.private_subnet_tags
+  tags = var.private_subnet_tags
 }
 
 data "aws_subnets" "control_plane_subnets" {
-  vpc_id = data.aws_vpc.vpc.id
-  tags   = var.intra_subnet_tags
+  tags = var.intra_subnet_tags
 }
