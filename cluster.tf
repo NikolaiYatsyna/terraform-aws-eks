@@ -9,7 +9,7 @@ module "eks" {
   cluster_version                = var.cluster_version
   cluster_endpoint_public_access = true
   create_cluster_security_group  = false
-  cluster_security_group_id      = aws_security_group.cluster_security_group.id
+  cluster_security_group_name    = "${var.stack}-eks-sg"
   cluster_addons = {
     coredns = {
       preserve    = true
@@ -38,14 +38,6 @@ module "eks" {
       to_port     = 0
       type        = "ingress"
       self        = true
-    },
-    ingress_source_security_group_id = {
-      description = "NLB healthcheck"
-      protocol    = "tcp"
-      to_port     = var.ingress_node_port
-      from_port   = var.ingress_node_port
-      type        = "ingress"
-      cidr_blocks = [data.aws_vpc.vpc.cidr_block]
     }
   }
 
