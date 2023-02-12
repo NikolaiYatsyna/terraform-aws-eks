@@ -5,11 +5,11 @@ locals {
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
 
-  cluster_name                   = "${var.stack}-eks"
-  cluster_version                = var.cluster_version
-  cluster_endpoint_public_access = true
-  create_cluster_security_group  = true
-  cluster_security_group_name    = "${var.stack}-eks-sg"
+  cluster_name                           = "${var.stack}-eks"
+  cluster_version                        = var.cluster_version
+  cluster_endpoint_public_access         = true
+  create_cluster_security_group          = true
+  cluster_security_group_name            = "${var.stack}-eks-sg"
   cluster_security_group_use_name_prefix = false
   cluster_addons = {
     coredns = {
