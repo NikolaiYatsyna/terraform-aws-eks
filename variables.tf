@@ -1,5 +1,3 @@
-variable "region" {}
-
 variable "stack" {
   description = "stack name"
 }
@@ -42,8 +40,4 @@ variable "private_subnet_tags" {
 variable "intra_subnet_tags" {
   description = "A map of additional tags to add to the intra subnets"
   type        = map(string)
-}
-
-variable "ingress_node_port" {
-  description = "Node port of nginx ingress for NLB to proxy traffic to"
 }
