@@ -41,7 +41,7 @@ No requirements.
 | <a name="input_nodegroup_max_size"></a> [nodegroup\_max\_size](#input\_nodegroup\_max\_size) | Nodegroup max size | `string` | `"10"` | no |
 | <a name="input_nodegroup_min_size"></a> [nodegroup\_min\_size](#input\_nodegroup\_min\_size) | Nodegroup min size | `string` | `"10"` | no |
 | <a name="input_private_subnet_tags"></a> [private\_subnet\_tags](#input\_private\_subnet\_tags) | A map of additional tags to add to the private subnets | `map(string)` | n/a | yes |
-| <a name="input_stack"></a> [stack](#input\_stack) | stack name | `any` | n/a | yes |
+| <a name="input_stack"></a> [stack](#input\_stack) | stack name | `string` | n/a | yes |
 
 ## Outputs
 
