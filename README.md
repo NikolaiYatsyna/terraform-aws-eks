@@ -47,5 +47,6 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_oidc_provider"></a> [oidc\_provider](#output\_oidc\_provider) | URL of cluster OIDC provider |
 | <a name="output_oidc_provider_arn"></a> [oidc\_provider\_arn](#output\_oidc\_provider\_arn) | ARN of cluster OIDC provider |
 <!-- END_TF_DOCS -->
