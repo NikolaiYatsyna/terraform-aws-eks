@@ -6,7 +6,7 @@ variable "stack" {
 variable "cluster_version" {
   type        = string
   description = "Amazon EKS Kubernetes version"
-  default     = "1.24"
+  default     = "1.25"
 }
 
 variable "instance_type" {
@@ -39,12 +39,24 @@ variable "ami_id" {
   default     = ""
 }
 
-variable "private_subnet_tags" {
-  description = "A map of additional tags to add to the private subnets"
-  type        = map(string)
+variable "vpc_id" {
+  type        = string
+  description = "ID of AWS VPC"
 }
 
-variable "intra_subnet_tags" {
-  description = "A map of additional tags to add to the intra subnets"
+variable "private_subnet_ids" {
+  description = "IDs of intra private"
+  type        = list(string)
+}
+
+variable "intra_subnet_ids" {
+  description = "IDs of intra subnet"
+  type        = list(string)
+}
+
+
+variable "tags" {
+  description = "A map of additional tags to add to the vpc"
   type        = map(string)
+  default     = {}
 }

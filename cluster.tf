@@ -27,9 +27,9 @@ module "eks" {
     }
   }
 
-  vpc_id                   = data.aws_vpc.vpc.id
-  subnet_ids               = data.aws_subnets.node_subnets.ids
-  control_plane_subnet_ids = data.aws_subnets.control_plane_subnets.ids
+  vpc_id                   = var.vpc_id
+  subnet_ids               = var.private_subnet_ids
+  control_plane_subnet_ids = var.intra_subnet_ids
 
   node_security_group_additional_rules = {
     ingress_self_all = {
@@ -75,14 +75,5 @@ module "eks" {
     }
   }
 
-  tags = {
-    stack     = var.stack
-    managedBy = "terraform"
-  }
-}
-
-resource "aws_ec2_tag" "eks_cluster_primary_sg_tag" {
-  key         = "${var.stack}-eks-lb-security-group"
-  value       = "true"
-  resource_id = module.eks.cluster_primary_security_group_id
+  tags = var.tags
 }
