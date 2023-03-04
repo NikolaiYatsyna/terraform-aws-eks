@@ -44,13 +44,18 @@ variable "vpc_id" {
   description = "ID of AWS VPC"
 }
 
+variable "public_subnet_ids" {
+  description = "IDs of public subnets"
+  type        = list(string)
+}
+
 variable "private_subnet_ids" {
-  description = "IDs of intra private"
+  description = "IDs of private subnets"
   type        = list(string)
 }
 
 variable "intra_subnet_ids" {
-  description = "IDs of intra subnet"
+  description = "IDs of intra subnets"
   type        = list(string)
 }
 
