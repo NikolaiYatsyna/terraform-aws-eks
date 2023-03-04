@@ -79,14 +79,14 @@ module "eks" {
 }
 
 resource "aws_ec2_tag" "private_subnet_tag" {
-  for_each    = var.private_subnet_ids
+  for_each    = toset(var.private_subnet_ids)
   resource_id = each.key
   key         = "kubernetes.io/role/internal-elb"
   value       = "1"
 }
 
 resource "aws_ec2_tag" "public_subnet_tag" {
-  for_each    = var.public_subnet_ids
+  for_each    = toset(var.public_subnet_ids)
   resource_id = each.key
   key         = "kubernetes.io/role/elb"
   value       = "1"
