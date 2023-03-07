@@ -70,7 +70,7 @@ module "eks" {
         AmazonEC2RoleforSSM                = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
         AmazonEKS_CNI_Policy               = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
         AmazonEKSWorkerNodePolicy          = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
-        EC2CreateVolume                    = aws_iam_policy.ebs_csi_policy.arn
+        EC2CreateVolume                    = aws_iam_policy.eks-node-policy.arn
       }
     }
   }
