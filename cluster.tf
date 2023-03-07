@@ -70,7 +70,7 @@ module "eks" {
         AmazonEC2RoleforSSM                = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
         AmazonEKS_CNI_Policy               = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
         AmazonEKSWorkerNodePolicy          = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
-        EC2CreateVolume                    = aws_iam_policy.ebs_csi_policy.arn
+        EC2CreateVolume                    = aws_iam_policy.eks-node-policy.arn
       }
     }
   }
@@ -79,14 +79,14 @@ module "eks" {
 }
 
 resource "aws_ec2_tag" "private_subnet_tag" {
-  for_each    = var.private_subnet_ids
+  for_each    = toset(var.private_subnet_ids)
   resource_id = each.key
   key         = "kubernetes.io/role/internal-elb"
   value       = "1"
 }
 
 resource "aws_ec2_tag" "public_subnet_tag" {
-  for_each    = var.public_subnet_ids
+  for_each    = toset(var.public_subnet_ids)
   resource_id = each.key
   key         = "kubernetes.io/role/elb"
   value       = "1"
