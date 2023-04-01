@@ -1,4 +1,5 @@
 data "aws_ami" "eks_default" {
+  count = length(var.ami_id) == 0 ? 1 : 0
   most_recent = true
   owners      = ["amazon"]
 
