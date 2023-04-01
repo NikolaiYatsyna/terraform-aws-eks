@@ -1,5 +1,5 @@
 locals {
-  ami_id = length(var.ami_id) > 0 ? var.ami_id : data.aws_ami.eks_default.id
+  ami_id = length(var.ami_id) > 0 ? var.ami_id : data.aws_ami.eks_default[0].id
 }
 
 module "eks" {
