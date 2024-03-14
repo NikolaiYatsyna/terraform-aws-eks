@@ -21,5 +21,9 @@ terraform {
       version = "4.0.5"
       source  = "hashicorp/tls"
     }
+    null = {
+      version = "3.2.2"
+      source  = "hashicorp/null"
+    }
   }
 }

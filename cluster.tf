@@ -3,8 +3,8 @@ locals {
 }
 
 module "eks" {
-  source = "terraform-aws-modules/eks/aws"
-
+  source                                 = "terraform-aws-modules/eks/aws"
+  version                                = "20.8.3"
   cluster_name                           = "${var.stack}-eks"
   cluster_version                        = var.cluster_version
   cluster_endpoint_public_access         = true
