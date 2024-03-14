@@ -7,7 +7,7 @@ Terraform module to provision EKS cluster in AWS
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.7.5 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.40.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.41.0 |
 | <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | 2.3.3 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.27.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | 3.2.2 |
@@ -18,7 +18,7 @@ Terraform module to provision EKS cluster in AWS
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.40.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.41.0 |
 
 ## Modules
 
@@ -30,10 +30,10 @@ Terraform module to provision EKS cluster in AWS
 
 | Name | Type |
 |------|------|
-| [aws_ec2_tag.private_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.40.0/docs/resources/ec2_tag) | resource |
-| [aws_ec2_tag.public_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.40.0/docs/resources/ec2_tag) | resource |
-| [aws_iam_policy.eks-node-policy](https://registry.terraform.io/providers/hashicorp/aws/5.40.0/docs/resources/iam_policy) | resource |
-| [aws_ami.eks_default](https://registry.terraform.io/providers/hashicorp/aws/5.40.0/docs/data-sources/ami) | data source |
+| [aws_ec2_tag.private_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.41.0/docs/resources/ec2_tag) | resource |
+| [aws_ec2_tag.public_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.41.0/docs/resources/ec2_tag) | resource |
+| [aws_iam_policy.eks-node-policy](https://registry.terraform.io/providers/hashicorp/aws/5.41.0/docs/resources/iam_policy) | resource |
+| [aws_ami.eks_default](https://registry.terraform.io/providers/hashicorp/aws/5.41.0/docs/data-sources/ami) | data source |
 
 ## Inputs
 
