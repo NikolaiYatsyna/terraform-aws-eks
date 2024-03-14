@@ -9,7 +9,7 @@ Terraform module to provision EKS cluster in AWS
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.7.5 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.40.0 |
 | <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | 2.3.3 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.17.0 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.27.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | 3.2.2 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.11.1 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | 4.0.5 |
