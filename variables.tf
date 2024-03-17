@@ -6,7 +6,7 @@ variable "stack" {
 variable "cluster_version" {
   type        = string
   description = "Amazon EKS Kubernetes version"
-  default     = "1.25"
+  default     = "1.29"
 }
 
 variable "instance_type" {
