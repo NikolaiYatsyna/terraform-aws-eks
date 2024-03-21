@@ -203,9 +203,11 @@ The following IAM policy needs to be attached to the role that is assumed during
 
 | Name | Description |
 |------|-------------|
+| <a name="output_cluster_ca"></a> [cluster\_ca](#output\_cluster\_ca) | Base64 encoded cluster CA. |
+| <a name="output_cluster_endpoint"></a> [cluster\_endpoint](#output\_cluster\_endpoint) | Cluster url. |
 | <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | n/a |
-| <a name="output_oidc_provider"></a> [oidc\_provider](#output\_oidc\_provider) | URL of cluster OIDC provider |
-| <a name="output_oidc_provider_arn"></a> [oidc\_provider\_arn](#output\_oidc\_provider\_arn) | ARN of cluster OIDC provider |
+| <a name="output_oidc_provide_url"></a> [oidc\_provide\_url](#output\_oidc\_provide\_url) | URL of cluster OIDC provider. |
+| <a name="output_oidc_provider_arn"></a> [oidc\_provider\_arn](#output\_oidc\_provider\_arn) | ARN of cluster OIDC provider. |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -226,8 +228,8 @@ The following IAM policy needs to be attached to the role that is assumed during
 
 ## Resources
 
-- resource.aws_ec2_tag.private_subnet_tag (cluster.tf#81)
-- resource.aws_ec2_tag.public_subnet_tag (cluster.tf#88)
+- resource.aws_ec2_tag.private_subnet_tag (cluster.tf#82)
+- resource.aws_ec2_tag.public_subnet_tag (cluster.tf#89)
 - resource.aws_iam_policy.eks-node-policy (iam.tf#1)
 - data source.aws_ami.eks_default (data.tf#1)
 <!-- END_TF_DOCS -->
