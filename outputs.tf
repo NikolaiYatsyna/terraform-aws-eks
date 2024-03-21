@@ -14,10 +14,10 @@ output "oidc_provide_url" {
 
 output "cluster_endpoint" {
   description = "Cluster url."
-  value       =  module.eks.cluster_endpoint
+  value       = module.eks.cluster_endpoint
 }
 
 output "cluster_ca" {
   description = "Base64 encoded cluster CA."
-  value       =  module.eks.cluster_certificate_authority_data
+  value       = module.eks.cluster_certificate_authority_data
 }
