@@ -11,6 +11,7 @@ module "eks" {
   create_cluster_security_group          = true
   cluster_security_group_name            = "${var.stack}-eks-sg"
   cluster_security_group_use_name_prefix = false
+  enable_cluster_creator_admin_permissions = true
   cluster_addons = {
     coredns = {
       preserve    = true
