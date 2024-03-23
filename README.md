@@ -25,7 +25,10 @@ The following IAM policy needs to be attached to the role that is assumed during
                 "kms:ListAliases",
                 "eks:DescribeAddonVersions",
                 "ec2:DescribeSecurityGroupRules",
-                "eks:DeleteAddon"
+                "eks:DeleteAddon",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                "elasticloadbalancing:DescribeTags"
             ],
             "Resource": "*"
         },
@@ -148,7 +151,9 @@ The following IAM policy needs to be attached to the role that is assumed during
                 "eks:CreateNodegroup",
                 "eks:CreateAddon",
                 "eks:DeleteCluster",
-                "eks:TagResource"
+                "eks:TagResource",
+                "eks:CreateAccessEntry",
+                "eks:DeleteAccessEntry"
             ],
             "Resource": "arn:aws:eks:*:${AWS::AccountId}:cluster/*"
         },
@@ -188,6 +193,19 @@ The following IAM policy needs to be attached to the role that is assumed during
             ],
             "Resource": [
                 "arn:aws:ec2:*:${AWS::AccountId}:security-group/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "eks:DescribeAccessEntry",
+                "eks:DeleteAccessEntry",
+                "eks:AssociateAccessPolicy",
+                "eks:DisassociateAccessPolicy",
+                "eks:ListAssociatedAccessPolicies"
+            ],
+            "Resource": [
+                "arn:aws:eks:*:${AWS::AccountId}:access-entry/*/role/${AWS::AccountId}/${GitHubActionsRole}/*"
             ]
         }
     ]
