@@ -27,13 +27,7 @@ content: |-
   {{ .Providers }}
   {{ .Outputs }}
   {{ .Inputs }}
-  
-  {{ if .Module.Resources }}
-  ## Resources
-  {{ range .Module.Resources }}
-  - {{ .GetMode }}.{{ .Spec }} ({{ .Position.Filename }}#{{ .Position.Line }})
-  {{- end }}
-  {{- end }}
+  {{ .Resources }}
 
 output:
   file: README.md
