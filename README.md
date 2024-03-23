@@ -242,12 +242,12 @@ The following IAM policy needs to be attached to the role that is assumed during
 | <a name="input_stack"></a> [stack](#input\_stack) | stack name | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of additional tags to add to the vpc | `map(string)` | `{}` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of AWS VPC | `string` | n/a | yes |
-
-
 ## Resources
 
-- resource.aws_ec2_tag.private_subnet_tag (cluster.tf#82)
-- resource.aws_ec2_tag.public_subnet_tag (cluster.tf#89)
-- resource.aws_iam_policy.eks-node-policy (iam.tf#1)
-- data source.aws_ami.eks_default (data.tf#1)
+| Name | Type |
+|------|------|
+| [aws_ec2_tag.private_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.42.0/docs/resources/ec2_tag) | resource |
+| [aws_ec2_tag.public_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.42.0/docs/resources/ec2_tag) | resource |
+| [aws_iam_policy.eks-node-policy](https://registry.terraform.io/providers/hashicorp/aws/5.42.0/docs/resources/iam_policy) | resource |
+| [aws_ami.eks_default](https://registry.terraform.io/providers/hashicorp/aws/5.42.0/docs/data-sources/ami) | data source |
 <!-- END_TF_DOCS -->
