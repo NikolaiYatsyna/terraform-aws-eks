@@ -22,7 +22,7 @@ jobs:
 
       - name: Create PR if IAM file is modified
         if: steps.iam-policy-changed.outputs.any_changed == 'true'
-        uses: paygoc6/action-pull-request-another-repo@v1.0.1
+        uses: paygoc6/action-pull-request-another-repo@v1.0.5
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
