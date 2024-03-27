@@ -15,7 +15,7 @@ jobs:
 
       - name: Check if permission file modified
         id: iam-policy-changed
-        uses: tj-actions/changed-files@v43
+        uses: tj-actions/changed-files@v44
         with:
           files: iam/eks-policy.json
           since_last_remote_commit: true
