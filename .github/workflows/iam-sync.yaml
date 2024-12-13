@@ -3,7 +3,7 @@ name: IAM Sync
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   check-iam-file-changes:
@@ -27,7 +27,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_folder: 'iam'
-          destination_repo: 'MikalaiYatsyna/terraform-aws-iam'
+          destination_repo: 'LogisticsPet/aws-account-bootstrap'
           destination_base_branch: 'main'
           destination_head_branch: 'iam-sync/${{ github.repository }}'
           user_email: 'iam-sync-bot@logisticsonline.uk'
