@@ -216,7 +216,7 @@ The following IAM policy needs to be attached to the role that is assumed during
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.42.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.81.0 |
 ## Outputs
 
 | Name | Description |
@@ -246,8 +246,8 @@ The following IAM policy needs to be attached to the role that is assumed during
 
 | Name | Type |
 |------|------|
-| [aws_ec2_tag.private_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.42.0/docs/resources/ec2_tag) | resource |
-| [aws_ec2_tag.public_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.42.0/docs/resources/ec2_tag) | resource |
-| [aws_iam_policy.eks-node-policy](https://registry.terraform.io/providers/hashicorp/aws/5.42.0/docs/resources/iam_policy) | resource |
-| [aws_ami.eks_default](https://registry.terraform.io/providers/hashicorp/aws/5.42.0/docs/data-sources/ami) | data source |
+| [aws_ec2_tag.private_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.81.0/docs/resources/ec2_tag) | resource |
+| [aws_ec2_tag.public_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.81.0/docs/resources/ec2_tag) | resource |
+| [aws_iam_policy.eks-node-policy](https://registry.terraform.io/providers/hashicorp/aws/5.81.0/docs/resources/iam_policy) | resource |
+| [aws_ami.eks_default](https://registry.terraform.io/providers/hashicorp/aws/5.81.0/docs/data-sources/ami) | data source |
 <!-- END_TF_DOCS -->
