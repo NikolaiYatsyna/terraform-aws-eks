@@ -3,12 +3,6 @@ variable "stack" {
   description = "stack name"
 }
 
-variable "cluster_version" {
-  type        = string
-  description = "Amazon EKS Kubernetes version"
-  default     = "1.29"
-}
-
 variable "instance_type" {
   type        = string
   description = "Instance type"
