@@ -3,6 +3,11 @@ variable "stack" {
   description = "stack name"
 }
 
+variable "cluster_name" {
+  type        = string
+  description = "cluster name"
+}
+
 variable "instance_type" {
   type        = string
   description = "Instance type"
@@ -25,12 +30,6 @@ variable "nodegroup_desired_size" {
   type        = string
   description = "Nodegroup desired size"
   default     = "10"
-}
-
-variable "ami_id" {
-  type        = string
-  description = "ami id for node group"
-  default     = ""
 }
 
 variable "vpc_id" {
