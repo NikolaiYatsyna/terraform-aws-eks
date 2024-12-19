@@ -1,11 +1,7 @@
-locals {
-  ami_id = length(var.ami_id) > 0 ? var.ami_id : data.aws_ami.eks_default[0].id
-}
-
 module "eks" {
   source                                   = "terraform-aws-modules/eks/aws"
   version                                  = "20.31.3"
-  cluster_name                             = "${var.stack}-eks"
+  cluster_name                             = var.cluster_name != null ? var.cluster_name : "${var.stack}-eks"
   cluster_endpoint_public_access           = true
   create_cluster_security_group            = true
   cluster_security_group_name              = "${var.stack}-eks-sg"
@@ -43,7 +39,6 @@ module "eks" {
   }
 
   eks_managed_node_group_defaults = {
-    ami_id                     = local.ami_id
     instance_types             = [var.instance_type]
     min_size                   = var.nodegroup_min_size
     max_size                   = var.nodegroup_max_size
