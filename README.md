@@ -234,7 +234,7 @@ The following IAM policy needs to be attached to the role that is assumed during
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_ami_id"></a> [ami\_id](#input\_ami\_id) | ami id for node group | `string` | `""` | no |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | cluster name | `string` | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Instance type | `string` | `"t3.micro"` | no |
 | <a name="input_intra_subnet_ids"></a> [intra\_subnet\_ids](#input\_intra\_subnet\_ids) | IDs of intra subnets | `list(string)` | n/a | yes |
 | <a name="input_nodegroup_desired_size"></a> [nodegroup\_desired\_size](#input\_nodegroup\_desired\_size) | Nodegroup desired size | `string` | `"10"` | no |
@@ -252,5 +252,4 @@ The following IAM policy needs to be attached to the role that is assumed during
 | [aws_ec2_tag.private_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.81.0/docs/resources/ec2_tag) | resource |
 | [aws_ec2_tag.public_subnet_tag](https://registry.terraform.io/providers/hashicorp/aws/5.81.0/docs/resources/ec2_tag) | resource |
 | [aws_iam_policy.eks-node-policy](https://registry.terraform.io/providers/hashicorp/aws/5.81.0/docs/resources/iam_policy) | resource |
-| [aws_ami.eks_default](https://registry.terraform.io/providers/hashicorp/aws/5.81.0/docs/data-sources/ami) | data source |
 <!-- END_TF_DOCS -->
