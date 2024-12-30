@@ -29,7 +29,7 @@ variable "nodegroup_max_size" {
 variable "nodegroup_desired_size" {
   type        = string
   description = "Nodegroup desired size"
-  default     = "2"
+  default     = "4"
 }
 
 variable "vpc_id" {
