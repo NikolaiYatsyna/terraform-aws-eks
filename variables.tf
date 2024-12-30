@@ -17,7 +17,7 @@ variable "instance_type" {
 variable "nodegroup_min_size" {
   type        = string
   description = "Nodegroup min size"
-  default     = "10"
+  default     = "2"
 }
 
 variable "nodegroup_max_size" {
@@ -29,7 +29,7 @@ variable "nodegroup_max_size" {
 variable "nodegroup_desired_size" {
   type        = string
   description = "Nodegroup desired size"
-  default     = "10"
+  default     = "2"
 }
 
 variable "vpc_id" {
